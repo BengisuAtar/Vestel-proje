@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vestel - Ana Sayfa</title>
+  
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <!-- FontAwesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <!-- AOS Animation CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+    rel="stylesheet"
+  />
+  
+  <style>
+    
+    /* --- Genel Stil Ayarları --- */
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      scroll-behavior: smooth;
+      background-color: #f8f9fa;
+    }
+    /* Hero Slider */
+    #heroCarousel {
+      height: 90vh;
+      overflow: hidden;
+    }
+    #heroCarousel .carousel-item {
+      height: 90vh;
+      background-position: center;
+      background-size: cover;
+      position: relative;
+      color: white;
+    }
+    #heroCarousel .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+    }
+    #heroCarousel .carousel-caption {
+      bottom: 30%;
+      z-index: 10;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+    }
+    /* Kart Hover Efekti */
+    .product-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      z-index: 5;
+    }
+    /* İkonlu İstatistikler */
+    .stats-icon {
+      font-size: 3rem;
+      color: #dc3545;
+      margin-bottom: 10px;
+    }
+    /* Footer */
+    footer {
+      background-color: #212529;
+      color: #f8f9fa;
+    }
+    footer a {
+      color: #dc3545;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Navbar arka plan beyaz */
+.navbar {
+  background-color: white !important;
+}
+
+/* Menü linkleri - temel stil */
+.navbar-nav .nav-link {
+  position: relative;
+  color: #dc3545; /* Kırmızı yazı rengi */
+  font-weight: 500;
+  transition: color 0.3s ease;
+  padding-bottom: 6px;
+}
+
+/* Alt çizgi animasyonu için ::after */
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px; /* Alt çizgi kalınlığı */
+  width: 0%;
+  background-color: #dc3545; /* Kırmızı çizgi */
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* Hover ve focus durumda alt çizgi tam genişlikte */
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link:focus::after,
+.navbar-nav .nav-link.active::after {
+  width: 100%;
+}
+
+/* Hover ve active linkte yazı rengi koyu kırmızı */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus,
+.navbar-nav .nav-link.active {
+  color: #a71d2a;
+}
+
+/* Navbar toggler ikonunun renk uyumu */
+.navbar-toggler-icon {
+  filter: invert(30%) sepia(100%) saturate(500%) hue-rotate(-15deg) brightness(90%) contrast(85%);
+}
+
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav
+  class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow"
+  aria-label="Ana Menü"
+>
+  <div class="container">
+    <a class="navbar-brand" href="index.html"
+      ><img src="img/logo2.png" alt="Vestel" height="60"
+    /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Menüyü aç"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="collapse navbar-collapse justify-content-end"
+      id="navbarNav"
+    >
+      <ul class="navbar-nav align-items-center">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html" aria-current="page"
+            >Ana Sayfa</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="hakkimizda.html">Hakkımızda</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="urunler.html">Ürünler</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="haberler.html">Haberler</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="iletisim.html">İletişim</a>
+        </li>
+
+        <!-- Koyu Mod Toggle Butonu -->
+        <li class="nav-item d-flex align-items-center ms-3">
+          <div class="form-check form-switch mb-0">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="darkModeToggle"
+              aria-label="Koyu Mod Aç/Kapa"
+            />
+            <label class="form-check-label" for="darkModeToggle">Koyu Mod</label>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<style>
+  /* Navbar varsayılan (aydınlık) stili */
+  .navbar {
+    background-color: white !important;
+  }
+  .navbar-nav .nav-link {
+    color: #dc3545; /* Kırmızı */
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  .navbar-nav .nav-link:hover,
+  .navbar-nav .nav-link.active {
+    color: #a71d2a;
+  }
+
+  /* Hover altında alt çizgi animasyonu */
+  .navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #dc3545;
+    transition: width 0.3s ease;
+  }
+  .navbar-nav .nav-link:hover::after,
+  .navbar-nav .nav-link.active::after {
+    width: 100%;
+  }
+
+  /* Koyu mod aktifken */
+  body.dark-mode {
+    background-color: #121212;
+    color: #f1f1f1;
+  }
+  body.dark-mode .navbar {
+    background-color: #1f1f1f !important;
+    box-shadow: none;
+  }
+  body.dark-mode .navbar-nav .nav-link {
+    color: #f1f1f1;
+  }
+  body.dark-mode .navbar-nav .nav-link:hover,
+  body.dark-mode .navbar-nav .nav-link.active {
+    color: #bb86fc;
+  }
+  body.dark-mode .navbar-nav .nav-link::after {
+    background-color: #bb86fc;
+  }
+  body.dark-mode .form-check-label {
+    color: #f1f1f1;
+  }
+</style>
+
+<script>
+  const toggleSwitch = document.getElementById("darkModeToggle");
+  const currentTheme = localStorage.getItem("theme");
+
+  if (currentTheme === "dark") {
+    document.body.classList.add("dark-mode");
+    toggleSwitch.checked = true;
+  }
+
+  toggleSwitch.addEventListener("change", () => {
+    if (toggleSwitch.checked) {
+      document.body.classList.add("dark-mode");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.body.classList.remove("dark-mode");
+      localStorage.setItem("theme", "light");
+    }
+  });
+</script>
+
+
+  <!-- Hero Slider -->
+  <div
+    id="heroCarousel"
+    class="carousel slide carousel-fade"
+    data-bs-ride="carousel"
+    data-bs-interval="5000"
+  >
+    <div class="carousel-inner">
+      <div
+        class="carousel-item active"
+        style="background-image: url('img/heroslider11.jpg')"
+      >
+        <div class="overlay"></div>
+        <div class="carousel-caption text-start" data-aos="fade-up" data-aos-delay="300">
+          <h1>Vestel ile Geleceğe Adım Atın</h1>
+          <p class="lead">
+            Yenilikçi teknolojiler ve yerli üretim gücüyle hayatınızı kolaylaştırıyoruz.
+          </p>
+          <a href="urunler.html" class="btn btn-danger btn-lg"
+            ><i class="fas fa-shopping-cart"></i> Ürünlerimizi İncele</a
+          >
+        </div>
+      </div>
+      <div
+        class="carousel-item"
+        style="background-image: url('img/heroslider2.jpg')"
+      >
+        <div class="overlay"></div>
+        <div class="carousel-caption text-start" data-aos="fade-up" data-aos-delay="300">
+          <h1>Enerji Tasarrufu ve Çevre Dostu Ürünler</h1>
+          <p class="lead">
+            Vestel ile sürdürülebilir ve çevreci teknolojiler evinizde.
+          </p>
+          <a href="urunler.html#beyazesya" class="btn btn-danger btn-lg"
+            >Detayları Görüntüle</a
+          >
+        </div>
+      </div>
+      <div
+        class="carousel-item"
+        style="background-image: url('img/heroslider3.jpg')"
+      >
+        <div class="overlay"></div>
+        <div class="carousel-caption text-start" data-aos="fade-up" data-aos-delay="300">
+          <h1>Akıllı Ev Teknolojileri</h1>
+          <p class="lead">
+            Vestel ile evinizi daha akıllı ve konforlu hale getirin.
+          </p>
+          <a href="urunler.html#kucukevaletleri" class="btn btn-danger btn-lg"
+            >Keşfet</a
+          >
+        </div>
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#heroCarousel"
+      data-bs-slide="prev"
+      aria-label="Önceki"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#heroCarousel"
+      data-bs-slide="next"
+      aria-label="Sonraki"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <!-- Ürünler Bölümü -->
+  <section class="container py-5">
+    <h2 class="text-center mb-5" data-aos="fade-up">Öne Çıkan Ürünlerimiz</h2>
+    <div class="row g-4">
+      <!-- Ürün Kartı 1 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card product-card shadow-sm border-0">
+          <img
+            src="img/anakart1.jpg"
+            class="card-img-top"
+            alt="Ultra HD Televizyon"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Ultra HD Televizyon</h5>
+            <p class="card-text text-muted">
+              4K çözünürlük, geniş ekran ve akıllı özellikler ile ev eğlencesini
+              zirveye taşıyor.
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="text-danger fw-bold">₺6.499</span>
+              <button class="btn btn-outline-danger btn-sm">
+                <i class="fas fa-eye"></i> İncele
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Ürün Kartı 2 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card product-card shadow-sm border-0">
+          <img src="img/anakart2.jpg" class="card-img-top" alt="Enerji Tasarruflu Buzdolabı" />
+          <div class="card-body">
+            <h5 class="card-title">Enerji Tasarruflu Buzdolabı</h5>
+            <p class="card-text text-muted">
+              Geniş iç hacim, düşük enerji tüketimi ve şık tasarımıyla mutfağınızın yıldızı.
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="text-danger fw-bold">₺5.299</span>
+              <button class="btn btn-outline-danger btn-sm">
+                <i class="fas fa-eye"></i> İncele
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Ürün Kartı 3 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="card product-card shadow-sm border-0">
+          <img src="img/anakart3.jpg" class="card-img-top" alt="Akıllı Blender" />
+          <div class="card-body">
+            <h5 class="card-title">Akıllı Blender</h5>
+            <p class="card-text text-muted">
+              Çok fonksiyonlu, sessiz çalışma ve kolay temizlenebilir tasarım.
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="text-danger fw-bold">₺899</span>
+              <button class="btn btn-outline-danger btn-sm">
+                <i class="fas fa-eye"></i> İncele
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vestel Hakkında İstatistikler -->
+  <section class="bg-danger text-white py-5">
+    <div class="container text-center">
+      <h2 class="mb-4" data-aos="fade-down">Vestel Hakkında</h2>
+      <p class="lead mb-5" data-aos="fade-up">
+        1984 yılından beri teknoloji alanında öncü Türk markası.
+      </p>
+      <div class="row justify-content-center g-4">
+        <div class="col-md-3" data-aos="zoom-in" data-aos-delay="100">
+          <i class="fas fa-globe stats-icon"></i>
+          <h3>150+</h3>
+          <p>Ülkeye İhracat</p>
+        </div>
+        <div class="col-md-3" data-aos="zoom-in" data-aos-delay="200">
+          <i class="fas fa-industry stats-icon"></i>
+          <h3>7</h3>
+          <p>Fabrika</p>
+        </div>
+        <div class="col-md-3" data-aos="zoom-in" data-aos-delay="300">
+          <i class="fas fa-users stats-icon"></i>
+          <h3>7000+</h3>
+          <p>Çalışan</p>
+        </div>
+      </div>
+      <a href="hakkimizda.html" class="btn btn-light mt-4" data-aos="fade-up" data-aos-delay="400"
+        >Daha Fazlası</a
+      >
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-4 text-center">
+    <div class="container">
+      <div class="mb-3">
+        <a href="#" aria-label="Facebook"
+          ><i class="fab fa-facebook fa-2x mx-2 text-light"></i
+        ></a>
+        <a href="#" aria-label="Twitter"
+          ><i class="fab fa-twitter fa-2x mx-2 text-light"></i
+        ></a>
+        <a href="#" aria-label="Instagram"
+          ><i class="fab fa-instagram fa-2x mx-2 text-light"></i
+        ></a>
+        <a href="#" aria-label="LinkedIn"
+          ><i class="fab fa-linkedin fa-2x mx-2 text-light"></i
+        ></a>
+      </div>
+      <p class="mb-0">
+        &copy; 2025 Vestel. Tüm hakları saklıdır. | BENGİSU ATAR
+        <i class="fa-solid fa-phone"></i> 0850 222 4 123
+      </p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS Animation JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
+  </script>
+</body>
+</html>
